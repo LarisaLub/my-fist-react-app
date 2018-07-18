@@ -1,29 +1,29 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import Text from "./Text";
 
 class App extends Component {
+    state = { isText: true };
+
+    toggleText = () => {
+        //const isText = this.state.isText ? false : true;
+        this.setState({ isText: !this.state.isText });
+    };
+
     render() {
+        const { isText } = this.state;
+
         return (
             <div className="App">
                 <header className="App-header">
                     <h1 className="App-title">Изучение JS и React</h1>
                 </header>
-                <p className="App-intro">
-                    Элементы — это объекты JavaScript, которые представляют HTML-элементы.
-                    Их не существуют в браузере. они описывают DOM-элементы, такие как h1,
-                    div, или section.{" "}
-                </p>
-                <p className="App-intro">
-                    {" "}
-                    Компоненты — это элементы React, написанные разработчиком. Обычно это
-                    части пользовательского интерфейса, которые содержат свою структуру и
-                    функциональность. Например, такие как NavBar, LikeButton, или
-                    ImageUploader.
-                </p>
+                <Text isText={isText} />
+                <button onClick={this.toggleText}>
+                    Click to {isText ? "hide" : "show"} text
+                </button>
             </div>
         );
     }
 }
-
 export default App;
