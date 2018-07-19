@@ -15,13 +15,7 @@ class App extends Component {
 
         return (
             <div className="App">
-                <header className="App-header">
-                    <h1 className="App-title">Изучение JS и React</h1>
-                </header>
                 <Text isText={isText} />
-                <button onClick={this.toggleText}>
-                    Click to {isText ? "hide" : "show"} text
-                </button>
             </div>
         );
     }
