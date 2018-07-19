@@ -1,21 +1,27 @@
 import React, { Component } from "react";
 import "./App.css";
+import { texts } from "./text.json";
 import Text from "./Text";
 
 class App extends Component {
-    state = { isText: true };
+    state = { texts: texts };
 
-    toggleText = () => {
-        //const isText = this.state.isText ? false : true;
-        this.setState({ isText: !this.state.isText });
+    toggleText = index => {
+        let texts = this.state.texts;
+        texts[index].isShowComm = !texts[index].isShowComm;
+        this.setState({ texts });
     };
 
     render() {
-        const { isText } = this.state;
-
         return (
             <div className="App">
-                <Text isText={isText} />
+                {this.state.texts.map((text, index) => (
+                    <Text
+                        key={index}
+                        text={text}
+                        toggleText={this.toggleText.bind(this, index)}
+                    />
+                ))}
             </div>
         );
     }

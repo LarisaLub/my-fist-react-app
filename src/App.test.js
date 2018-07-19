@@ -1,9 +1,29 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import React, { Component } from "react";
+import "./App.css";
+import { texts } from "./text.json";
+import Text from "./Text";
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
+class App extends Component {
+    state = { texts: texts };
+
+    toggleText = index => {
+        let texts = this.state.texts;
+        texts[index].isShowComm = !texts[index].isShowComm;
+        this.setState({ texts });
+    };
+
+    render() {
+        return (
+            <div className="App">
+                {this.state.texts.map((text, index) => (
+                    <Text
+                        key={index}
+                        text={text}
+                        toggleText={this.toggleText.bind(this, index)}
+                    />
+                ))}
+            </div>
+        );
+    }
+}
+export default App;

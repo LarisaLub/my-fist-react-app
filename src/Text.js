@@ -1,23 +1,17 @@
 import React, { Component } from "react";
 
-const Text = ({ isText }) => {
+const Text = ({ text, toggleText }) => {
+    const isShowComm = text.isShowComm;
     return (
-        <div style={{ display: isText ? "block" : "none" }}>
+        <div>
             <header className="App-header">
-                <h1 className="App-title">Изучение JS и React</h1>
+                <h1 className="App-title">{text.title}</h1>
             </header>
-            <p className="App-intro">
-                Элементы — это объекты JavaScript, которые представляют HTML-элементы. Их
-                не существуют в браузере. они описывают DOM-элементы, такие как h1, div,
-                или section.{" "}
+            <p className="App-intro">{text.text}</p>
+            <p className="App-intro" style={{ display: isShowComm ? "block" : "none" }}>
+                {text.commit}
             </p>
-            <p className="App-intro">
-                Компоненты — это элементы React, написанные разработчиком. Обычно это
-                части пользовательского интерфейса, которые содержат свою структуру и
-                функциональность. Например, такие как NavBar, LikeButton, или
-                ImageUploader.
-            </p>
-            <button>Click to {isText ? "hide" : "show"} text</button>
+            <button onClick={toggleText}>{isShowComm ? "Hide" : "Show"} commit </button>
         </div>
     );
 };

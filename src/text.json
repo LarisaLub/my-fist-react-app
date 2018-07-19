@@ -1,0 +1,21 @@
+{
+    "texts": [
+        {
+            "title": "JS",
+            "text": "JavaScript ",
+            "commit": "JavaScript supports event-driven, functional, and imperative"
+        },
+
+        {
+            "title": "Json",
+            "text": "JavaScript Object Notatio",
+            "commit": "JSON is a language-independent data format"
+        },
+
+        {
+            "title": "React",
+            "text": " React is a declarative, efficient,flexible JavaScript library",
+            "commit": "Each React component is encapsulated and can operate independently"
+        }
+    ]
+}
