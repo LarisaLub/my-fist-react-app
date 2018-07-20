@@ -1,17 +1,24 @@
-import React, { Component } from "react";
+import React from "react";
 
-const Text = ({ text, toggleText }) => {
-    const isShowComm = text.isShowComm;
+const Text = ({ text, toggleText, show }) => {
+    //const isShowComm = text.isShowComm;
     return (
         <div>
             <header className="App-header">
                 <h1 className="App-title">{text.title}</h1>
             </header>
             <p className="App-intro">{text.text}</p>
-            <p className="App-intro" style={{ display: isShowComm ? "block" : "none" }}>
-                {text.commit}
-            </p>
-            <button onClick={toggleText}>{isShowComm ? "Hide" : "Show"} commit </button>
+            {show ? (
+                <p className="App-intro" style={{ display: "block" }}>
+                    {text.commit}
+                </p>
+            ) : null}
+            <button
+                onClick={() => {
+                    toggleText(text.id);
+                }}>
+                {show ? "Hide" : "Show"} commit{" "}
+            </button>
         </div>
     );
 };
